@@ -25,6 +25,7 @@
 # 그리고 sorting 편의를 위해 rank를 suit 전에 두기로 한다.
 # 
 # 예: '3C' 또는 ('3', 'C')
+
 #----------straight flush----------#
 # 스트레이트 + 플러시 만족.
 # rolyal straight flush A K Q J 10 (가장 높음)
@@ -84,9 +85,10 @@ import random
 suits = 'CDHS'
 ranks = '23456789TJQKA'
 values = dict(zip(ranks, range(2, 2+len(ranks))))
+suit_dict = {'D':'Diamonds', 'C':'Clubs', 'H':'Hearts', 'S':'Spades'}
+rank_dict = dict(zip('23456789', '23456789'))
+rank_dict['T'], rank_dict['J'], rank_dict['Q'], rank_dict['K'], rank_dict['A'] = '10', 'Jack', 'Queen', 'King', 'Ace'
 card_set = [(rank, suit)for rank in ranks for suit in suits]
-
-
 
 def is_flush(cards):
     """"return: bool
@@ -101,7 +103,6 @@ def is_straight(cards):
             None, otherwise
     """
     cards.sort(reverse = True, key=lambda t:values[t[0]])
-    print('sorted:', cards)
     a_check = False
     prev_card = values[cards[0][0]]
     answer = [cards[0]]
@@ -124,14 +125,55 @@ def classify_by_rank(cards):
     :return: dict of the form { rank: [card, ...], ...}
         None if same ranks not found
     """
-    pass
+    r_dict = {}
+    for i in range(5):
+        r_dict.setdefault(cards[i][0],[])
+    for pair in r_dict.keys():
+        r_dict[pair] = [cards[idx] for idx in range(5) if cards[idx][0] == pair]
+    return r_dict
 
 def find_a_kind(cards):
     """Find if one pair, two pair, or three, four of a kind, or full house
     
     :return: hand-ranking name including 'Full house'
     """
-    cards_by_ranks = classify_by_rank(cards)
+    cards_by_ranks = classify_by_rank(cards)       #this returns dict
+    print(cards_by_ranks)
+    #from here sorting dict to list
+    cards_by_ranks_sort = sorted(cards_by_ranks.items(), key=lambda t: values[t[0][0]], reverse = True)
+    print(cards_by_ranks_sort)
+    if len(cards_by_ranks) == 5:      # No pairs
+        return f'{rank_dict[cards_by_ranks_sort[0][0]]} High Card'
+    elif len (cards_by_ranks) == 4:   # One pairs
+        for card in cards_by_ranks:
+            if len(cards_by_ranks[card]) == 2:
+                return f'{rank_dict[card]} One Pair'
+                break
+    elif len(cards_by_ranks) == 3:     # Thee of a Kind or Two Pair
+        for card in cards_by_ranks:
+            if len(cards_by_ranks[card]) == 3:
+                return f'{rank_dict[card]} Three of a Kind'
+                break
+            print(card)
+
+#
+#
+#
+
+
+
+
+#start from here
+
+
+
+                
+    else: # Full House or Four of a Kind
+        for card in cards_by_ranks:
+            if len(cards_by_ranks[card]) == 3:   #if Full House
+                return f'{rank_dict[cards_by_ranks_sort[0][0]]}-{rank_dict[cards_by_ranks_sort[1][0]]} Full House'
+            elif len(cards_by_ranks[card]) == 4:    #if Four of a kind
+                return f'{rank_dict[card]} Four of a Kind'
     pass
 
 def tell_hand_ranking(cards):
@@ -144,52 +186,83 @@ def tell_hand_ranking(cards):
 
     if is_flush(cards):
         if check_straight == None:
-            print('Your hand-ranking name is "Flush"')
+            return f"{suit_dict[cards[0][1]]} Flush"
         elif check_straight[4][0] == '2':
-            print('Your hand-rankging name is "Steel Wheel (lowest in straight flush)"')
+            return "Steel Wheel (lowest in straight flush)"
         else:
-            print('Your hand-ranking name is "Royal Straight Flush(highest in straight fulsh)".')
+            return "Royal Straight Flush (highest in straight fulsh)"
     # straight 인지 확인
     elif check_straight == None:
         # 나머지 경우의수
-        pass
+        print("in the leftover~!")
+        return find_a_kind(cards)
     elif check_straight[4][0] == '2' and check_straight[0][0]== 'A':
-        print('Your hand-rankging name is "Baby Straight (lowest in straight)"')
+        return "Baby Straight (lowest in straight)"
     elif check_straight[4][0] == 'T':
-        print('Your hand-ranking name is "Broadway Straight (highest in straight)".')
+        return "Broadway Straight (highest in straight)"
     else:
-        print('Your hand-ranking name is "Straight".')
+        return "Straight"
 
     
-
+import sys
 if __name__ == "__main__":    # Only if this script runs as a main,
-    test_case1 = [('3','D'),('5','D'),('2','C'),('A','D'),('4','D')]
+    test_case1 = [('3','D'),('5','D'),('7','C'),('A','D'),('4','D')]
     test_case2 = [('K','D'),('J','D'),('Q','C'),('A','D'),('T','D')]
-    test_case3 = [('4','D'),('4','D'),('A','C'),('A','D'),('A','D')]
+    test_case3 = [('4','D'),('4','C'),('A','C'),('A','S'),('A','D')]
     test_case4 = [('2','D'),('3','D'),('4','C'),('5','D'),('6','D')]
-    
+    test_case5 = [('2','D'),('8','D'),('4','D'),('5','D'),('6','D')]
+    test_case6 = [('2','D'),('2','S'),('4','H'),('J','D'),('6','D')]
+    test_case7 = [('4','D'),('A','H'),('A','C'),('A','S'),('A','D')]
+    test_case8 = [('J', 'H'), ('2', 'S'), ('J', 'S'), ('8', 'H'), ('2', 'H')]
     random.shuffle(card_set)
-    hand_card = [i for i in card_set[:5]]
+    card_idx=0
+    """
+        while(1):
+        hand_card = [card for card in card_set[card_idx:card_idx+5]]
+        print("\nMy card: ", hand_card)
+        print(tell_hand_ranking(hand_card))
+        ask = input()
+        if ask in ['n','next','\\n']:
+            card_idx += 5
+        elif ask in ['s','stop','end','e']:
+            sys.exit()
 
-
-    print('\nrandom card: ', hand_card)
-    tell_hand_ranking(hand_card)
-
+        if 52-card_idx < 5:
+            print("Reset a card set....")
+            random.shuffle(card_set)
+            card_idx = 0
+    
+    
     print('='*100)
     print('\ntest_case card: ', test_case1)
-    tell_hand_ranking(test_case1)
-
+    print(tell_hand_ranking(test_case1))
+    
     print('='*100)
     print('\ntest_case card: ', test_case2)
-    tell_hand_ranking(test_case2)
+    print(tell_hand_ranking(test_case2))
 
     print('='*100)
     print('\ntest_case card: ', test_case3)
-    tell_hand_ranking(test_case3)
+    print(tell_hand_ranking(test_case3))
 
     print('='*100)
     print('\ntest_case card: ', test_case4)
-    tell_hand_ranking(test_case4)
+    print(tell_hand_ranking(test_case4))
 
+    print('='*100)
+    print('\ntest_case card: ', test_case5)
+    print(tell_hand_ranking(test_case5))
+
+    print('='*100)
+    print('\ntest_case card: ', test_case6)
+    print(tell_hand_ranking(test_case6))
+
+    print('='*100)
+    print('\ntest_case card: ', test_case7)
+    print(tell_hand_ranking(test_case7))
+    """
+    print('='*100)
+    print('\ntest_case card: ', test_case8)
+    print(tell_hand_ranking(test_case8))
     pass                      # test code here will run.
 
