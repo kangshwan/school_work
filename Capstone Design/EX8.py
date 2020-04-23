@@ -6,13 +6,13 @@ class Set:
     def intersection(self, other):        # other is any sequence
         res = []                       # self is the subject
         for x in self.data:
-            if x in other:             # Pick common items
+            if x in other.data:             # Pick common items
                 res.append(x)
         return Set(res)                # Return a new Set
 
     def union(self, other):            # other is any sequence
         res = self.data[:]             # Copy of my list
-        for x in other:                # Add items in other
+        for x in other.data:                # Add items in other
             if not x in res:
                 res.append(x)
         return Set(res)
@@ -24,7 +24,7 @@ class Set:
 
     def issubset(self, other):
         for x in self.data:
-            if x not in other :
+            if x not in other.data :
                 return False
         return True
     
@@ -32,17 +32,17 @@ class Set:
         return other.issubset(self)
 
     def intersection_update(self, other):
-        res = [x for x in other if x in self.data]
+        res = [x for x in other.data if x in self.data]
         return Set(res)
     
     def difference_update(self, other):
-        res = [x for x in self.data if x not in other]
+        res = [x for x in self.data if x not in other.data]
         return Set(res)
 
     def symmetric_difference_update(self, other):
         sub = self & other
-        res = [x for x in self if not x in sub]
-        res += [y for y in other if not y in sub]
+        res = [x for x in self.data if not x in sub]
+        res += [y for y in other.data if not y in sub]
         return Set(res)
 
     def add(self, elem):
@@ -64,10 +64,18 @@ class Set:
     def __lt__(self, other):    return self.issubset(other) and not len(self) == len(other)     # self  <  other
     def __ge__(self, other):    return self.isupperset(other)                                   # self  >= other
     def __gt__(self, other):    return self.isupperset(other) and not len(self) == len(other)   # self  >  other
-    def __ior__(self, other):   return self.union(other)                # self |= other
-    def __isub__(self, other):  return self.difference_update(other)    # self -= other
-    def __iand__(self, other):  return self.intersection_update(other)  # self &= other
-    def __ixor__(self, other):  return self.symmetric_difference_update(other)  # self ^= other
+    def __ior__(self, other):   
+        self = self.union(other)                # self |= other
+        return self
+    def __isub__(self, other):  
+        self = self.difference_update(other)    # self -= other
+        return self
+    def __iand__(self, other):  
+        self = self.intersection_update(other)  # self &= other
+        return self
+    def __ixor__(self, other):  
+        self = self.symmetric_difference_update(other)  # self ^= other
+        return self
     def __repr__(self):         return 'Set({})'.format(repr(self.data))  
     def __iter__(self):         return iter(self.data)       # for x in self:
     
