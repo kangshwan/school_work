@@ -28,7 +28,7 @@ class Set:
                 return False
         return True
     
-    def isupperset(self, other):
+    def issuperset(self, other):
         return other.issubset(self)
 
     def intersection_update(self, other):
@@ -62,8 +62,8 @@ class Set:
     def __or__(self, other):    return self.union(other)     # self | other
     def __le__(self, other):    return self.issubset(other)                                     # self  <= other
     def __lt__(self, other):    return self.issubset(other) and not len(self) == len(other)     # self  <  other
-    def __ge__(self, other):    return self.isupperset(other)                                   # self  >= other
-    def __gt__(self, other):    return self.isupperset(other) and not len(self) == len(other)   # self  >  other
+    def __ge__(self, other):    return self.issuperset(other)                                   # self  >= other
+    def __gt__(self, other):    return self.issuperset(other) and not len(self) == len(other)   # self  >  other
     def __ior__(self, other):   
         self = self.union(other)                # self |= other
         return self
@@ -108,11 +108,11 @@ if __name__ == '__main__':
     print('x<=y',x<=y)
     print('x<y',x<y)
    
-    print('\ny is upperset of x?: ',y.isupperset(x))
+    print('\ny is superset of x?: ',y.issuperset(x))
     print('y>=x?', y>=x)
     print('y>x?', y>x)
    
-    print('\nx is upperset of y?', x.isupperset(y))
+    print('\nx is superset of y?', x.issuperset(y))
     print('x>=y?', x>=y)
     print('x>y', x>y)
     print()
@@ -127,11 +127,11 @@ if __name__ == '__main__':
     print('x<=y',x<=y)
     print('x<y',x<y)
 
-    print('\ny is upperset of x?: ',y.isupperset(x))
+    print('\ny is superset of x?: ',y.issuperset(x))
     print('y>=x?', y>=x)
     print('y>x?', y>x)
 
-    print('\nx is upperset of y?', x.isupperset(y))
+    print('\nx is superset of y?', x.issuperset(y))
     print('x>=y?', x>=y)
     print('x>y', x>y)
     print()
@@ -146,11 +146,11 @@ if __name__ == '__main__':
     print('x<=y',x<=y)
     print('x<y',x<y)
 
-    print('\ny is upperset of x?: ',y.isupperset(x))
+    print('\ny is superset of x?: ',y.issuperset(x))
     print('y>=x?', y>=x)
     print('y>x?', y>x)
 
-    print('\nx is upperset of y?', x.isupperset(y))
+    print('\nx is superset of y?', x.issuperset(y))
     print('x>=y?', x>=y)
     print('x>y', x>y)
 
