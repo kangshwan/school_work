@@ -1,7 +1,7 @@
 # Constants
 suits = 'CDHS'
 ranks = '23456789TJQKA'
-
+values = dict(zip(ranks, range(2,len(ranks)+2)))
 from abc import ABCMeta, abstractmethod
 
 class Card(metaclass=ABCMeta):
@@ -35,8 +35,7 @@ class PKCard(Card):
     """Card for Poker game
     """
     def value(self):
-        self.values = dict(zip(ranks, range(2,len(ranks)+2)))
-        return self.values[self.card[0]]
+        return values[self.card[0]]
         pass
 
     def suit(self):         # 이 함수는 카드의 모양을 리턴해줍니다.
@@ -310,10 +309,11 @@ if __name__ == '__main__':
     test_cases.append(Hands([PKCard('AD'), PKCard('2H'), PKCard('2C'), PKCard('2S'), PKCard('2D')]))
 
     # case for straight flush
-    test_cases.append(Hands([PKCard('2C'), PKCard('3C'), PKCard('4C'), PKCard('5C'), PKCard('AC')]))
     test_cases.append(Hands([PKCard('2D'), PKCard('3D'), PKCard('4D'), PKCard('5D'), PKCard('6D')]))
     test_cases.append(Hands([PKCard('AH'), PKCard('JH'), PKCard('KH'), PKCard('TH'), PKCard('QH')]))
     test_cases.append(Hands([PKCard('AS'), PKCard('JS'), PKCard('KS'), PKCard('TS'), PKCard('QS')]))
+    test_cases.append(Hands([PKCard('2C'), PKCard('3C'), PKCard('4C'), PKCard('5C'), PKCard('AC')]))
+
 
 
     # None means that two cards are equal.
@@ -382,8 +382,8 @@ if __name__ == '__main__':
     print('Test cases for Straight Flush')
     print('='*30) 
     test(test_cases[28].is_win(test_cases[29]) == False)
-    test(test_cases[29].is_win(test_cases[30]) == False)
-    test(test_cases[30].is_win(test_cases[31]) == None)
+    test(test_cases[29].is_win(test_cases[30]) == None)
+    test(test_cases[30].is_win(test_cases[31]) == True)
 
     print()
     print('='*30)
@@ -430,7 +430,7 @@ if __name__ == '__main__':
     test(test_cases[13].is_win(test_cases[22]) == False)
     test(test_cases[13].is_win(test_cases[23]) == False)
     test(test_cases[13].is_win(test_cases[27]) == False)
-    test(test_cases[13].is_win(test_cases[31]) == False)
+    test(test_cases[13].is_win(test_cases[28]) == False)
 
     print()
     print('='*30)
@@ -441,7 +441,7 @@ if __name__ == '__main__':
     test(test_cases[15].is_win(test_cases[19]) == False)
     test(test_cases[15].is_win(test_cases[24]) == False)
     test(test_cases[15].is_win(test_cases[26]) == False)
-    test(test_cases[15].is_win(test_cases[28]) == False)
+    test(test_cases[15].is_win(test_cases[29]) == False)
 
     print()
     print('='*30)
@@ -452,7 +452,7 @@ if __name__ == '__main__':
     test(test_cases[19].is_win(test_cases[16]) == True)
     test(test_cases[19].is_win(test_cases[25]) == False)
     test(test_cases[19].is_win(test_cases[27]) == False)
-    test(test_cases[19].is_win(test_cases[29]) == False)
+    test(test_cases[19].is_win(test_cases[30]) == False)
 
     print()
     print('='*30)
@@ -463,7 +463,7 @@ if __name__ == '__main__':
     test(test_cases[23].is_win(test_cases[17]) == True)
     test(test_cases[23].is_win(test_cases[20]) == True)
     test(test_cases[23].is_win(test_cases[26]) == False)
-    test(test_cases[23].is_win(test_cases[30]) == False)
+    test(test_cases[23].is_win(test_cases[28]) == False)
 
     print()
     print('='*30)
@@ -474,7 +474,7 @@ if __name__ == '__main__':
     test(test_cases[26].is_win(test_cases[15]) == True)
     test(test_cases[26].is_win(test_cases[21]) == True)
     test(test_cases[26].is_win(test_cases[23]) == True)
-    test(test_cases[26].is_win(test_cases[31]) == False)
+    test(test_cases[26].is_win(test_cases[29]) == False)
 
     print()
     print('='*30)
