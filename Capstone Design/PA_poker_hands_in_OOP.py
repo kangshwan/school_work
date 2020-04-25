@@ -50,7 +50,7 @@ class Deck:
         self.deck = []
         for rank in ranks:
             for suit in suits:
-                self.deck.append(PKCard(rank+suit))
+                self.deck.append(cls(rank+suit))
         pass
     
     def shuffle(self):
@@ -227,6 +227,7 @@ class Hands:
         return str(self.cards)
 rank_name = ['High card','One pair', 'Two Pair', 'Three of a kind', 'Straight', 'Flush', 'Full house', 'Four of a kind', 'Straight flush']
 rank_dict = dict(zip(range(9),rank_name))
+
 import os
 if __name__ == '__main__':
     import sys
