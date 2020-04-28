@@ -47,10 +47,7 @@ class Deck:
     def __init__(self, cls):
         """Create a deck of 'cls' card class
         """
-        self.deck = []
-        for rank in ranks:
-            for suit in suits:
-                self.deck.append(cls(rank+suit))
+        self.deck = [cls(rank+suit) for rank in ranks for suit in suits]
         pass
     
     def shuffle(self):
