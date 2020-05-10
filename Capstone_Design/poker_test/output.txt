@@ -1,0 +1,82 @@
+============================= test session starts =============================
+platform win32 -- Python 3.7.2, pytest-5.4.1, py-1.8.1, pluggy-0.13.1 -- c:\users\rnltl\python\python37\python.exe
+cachedir: .pytest_cache
+rootdir: C:\Users\rnltl\Desktop\school_work\Capstone_Design\poker_test
+plugins: cov-2.8.1
+collecting ... collected 62 items
+
+test_card.py::test_PKCard_init PASSED                                    [  1%]
+test_card.py::test_PKCard_init_exception PASSED                          [  3%]
+test_card.py::test_PKCard_repr PASSED                                    [  4%]
+test_card.py::test_PKCard_value PASSED                                   [  6%]
+test_card.py::test_PKCard_comp PASSED                                    [  8%]
+test_card.py::test_PKCard_sort PASSED                                    [  9%]
+test_card.py::test_PKCard_deck PASSED                                    [ 11%]
+test_card.py::test_PKCard_deck_pop PASSED                                [ 12%]
+test_card.py::test_PKCard_deck_shuffle PASSED                            [ 14%]
+test_pkcard.py::test_is_straight[faces0-Ranking.STRAIGHT] PASSED         [ 16%]
+test_pkcard.py::test_is_straight[faces1-Ranking.STRAIGHT] PASSED         [ 17%]
+test_pkcard.py::test_is_straight[faces2-Ranking.STRAIGHT] PASSED         [ 19%]
+test_pkcard.py::test_is_flush[faces0-Ranking.FLUSH] PASSED               [ 20%]
+test_pkcard.py::test_is_flush[faces1-Ranking.FLUSH] PASSED               [ 22%]
+test_pkcard.py::test_is_flush[faces2-Ranking.FLUSH] PASSED               [ 24%]
+test_pkcard.py::test_find_a_kind[faces0-Ranking.FOUR_OF_A_KIND] PASSED   [ 25%]
+test_pkcard.py::test_find_a_kind[faces1-Ranking.FOUR_OF_A_KIND] PASSED   [ 27%]
+test_pkcard.py::test_find_a_kind[faces2-Ranking.FOUR_OF_A_KIND] PASSED   [ 29%]
+test_pkcard.py::test_find_a_kind[faces3-Ranking.FULL_HOUSE] PASSED       [ 30%]
+test_pkcard.py::test_find_a_kind[faces4-Ranking.FULL_HOUSE] PASSED       [ 32%]
+test_pkcard.py::test_find_a_kind[faces5-Ranking.FULL_HOUSE] PASSED       [ 33%]
+test_pkcard.py::test_find_a_kind[faces6-Ranking.THREE_OF_A_KIND] PASSED  [ 35%]
+test_pkcard.py::test_find_a_kind[faces7-Ranking.THREE_OF_A_KIND] PASSED  [ 37%]
+test_pkcard.py::test_find_a_kind[faces8-Ranking.THREE_OF_A_KIND] PASSED  [ 38%]
+test_pkcard.py::test_find_a_kind[faces9-Ranking.TWO_PAIRS] PASSED        [ 40%]
+test_pkcard.py::test_find_a_kind[faces10-Ranking.TWO_PAIRS] PASSED       [ 41%]
+test_pkcard.py::test_find_a_kind[faces11-Ranking.TWO_PAIRS] PASSED       [ 43%]
+test_pkcard.py::test_find_a_kind[faces12-Ranking.ONE_PAIR] PASSED        [ 45%]
+test_pkcard.py::test_find_a_kind[faces13-Ranking.ONE_PAIR] PASSED        [ 46%]
+test_pkcard.py::test_find_a_kind[faces14-Ranking.ONE_PAIR] PASSED        [ 48%]
+test_pkcard.py::test_find_a_kind[faces15-Ranking.HIGH_CARD] PASSED       [ 50%]
+test_pkcard.py::test_find_a_kind[faces16-Ranking.HIGH_CARD] PASSED       [ 51%]
+test_pkcard.py::test_find_a_kind[faces17-Ranking.HIGH_CARD] PASSED       [ 53%]
+test_pkcard.py::test_eval[faces0-Ranking.STRAIGHT_FLUSH] PASSED          [ 54%]
+test_pkcard.py::test_eval[faces1-Ranking.STRAIGHT_FLUSH] PASSED          [ 56%]
+test_pkcard.py::test_eval[faces2-Ranking.STRAIGHT_FLUSH] PASSED          [ 58%]
+test_pkcard.py::test_eval[faces3-Ranking.FOUR_OF_A_KIND] PASSED          [ 59%]
+test_pkcard.py::test_eval[faces4-Ranking.FOUR_OF_A_KIND] PASSED          [ 61%]
+test_pkcard.py::test_eval[faces5-Ranking.FOUR_OF_A_KIND] PASSED          [ 62%]
+test_pkcard.py::test_eval[faces6-Ranking.FULL_HOUSE] PASSED              [ 64%]
+test_pkcard.py::test_eval[faces7-Ranking.FULL_HOUSE] PASSED              [ 66%]
+test_pkcard.py::test_eval[faces8-Ranking.FULL_HOUSE] PASSED              [ 67%]
+test_pkcard.py::test_eval[faces9-Ranking.FLUSH] PASSED                   [ 69%]
+test_pkcard.py::test_eval[faces10-Ranking.FLUSH] PASSED                  [ 70%]
+test_pkcard.py::test_eval[faces11-Ranking.FLUSH] PASSED                  [ 72%]
+test_pkcard.py::test_eval[faces12-Ranking.STRAIGHT] PASSED               [ 74%]
+test_pkcard.py::test_eval[faces13-Ranking.STRAIGHT] PASSED               [ 75%]
+test_pkcard.py::test_eval[faces14-Ranking.STRAIGHT] PASSED               [ 77%]
+test_pkcard.py::test_eval[faces15-Ranking.THREE_OF_A_KIND] PASSED        [ 79%]
+test_pkcard.py::test_eval[faces16-Ranking.THREE_OF_A_KIND] PASSED        [ 80%]
+test_pkcard.py::test_eval[faces17-Ranking.THREE_OF_A_KIND] PASSED        [ 82%]
+test_pkcard.py::test_eval[faces18-Ranking.TWO_PAIRS] PASSED              [ 83%]
+test_pkcard.py::test_eval[faces19-Ranking.TWO_PAIRS] PASSED              [ 85%]
+test_pkcard.py::test_eval[faces20-Ranking.TWO_PAIRS] PASSED              [ 87%]
+test_pkcard.py::test_eval[faces21-Ranking.ONE_PAIR] PASSED               [ 88%]
+test_pkcard.py::test_eval[faces22-Ranking.ONE_PAIR] PASSED               [ 90%]
+test_pkcard.py::test_eval[faces23-Ranking.ONE_PAIR] PASSED               [ 91%]
+test_pkcard.py::test_eval[faces24-Ranking.HIGH_CARD] PASSED              [ 93%]
+test_pkcard.py::test_eval[faces25-Ranking.HIGH_CARD] PASSED              [ 95%]
+test_pkcard.py::test_eval[faces26-Ranking.HIGH_CARD] PASSED              [ 96%]
+test_pkcard.py::test_who_wins PASSED                                     [ 98%]
+test_pkcard.py::test_classify_by_rank PASSED                             [100%]
+
+----------- coverage: platform win32, python 3.7.2-final-0 -----------
+Name                       Stmts   Miss  Cover
+----------------------------------------------
+PA_poker_hands_in_OOP.py     164     17    90%
+conftest.py                   18      1    94%
+test_card.py                  48      0   100%
+test_pkcard.py                59      0   100%
+----------------------------------------------
+TOTAL                        289     18    94%
+
+
+============================= 62 passed in 0.35s ==============================
