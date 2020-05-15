@@ -1,0 +1,24 @@
+body{
+    background-color: skyblue;
+}
+h1{
+    border: 5px double white;
+    color: white;
+
+}
+h2{
+    border: 3px inset white;
+    color: white;
+
+}
+h3{
+    border: 3px ridge burlywood;
+    color: brown;
+
+}
+p{
+    color: grey;
+    border: 2px dashed grey;
+    padding: 10px;
+    margin: 10px
+}

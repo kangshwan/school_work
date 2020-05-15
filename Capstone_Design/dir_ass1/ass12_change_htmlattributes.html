@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            coffin dance!
+        </title>
+    </head>
+<body>
+<script>
+var pic_count = 0;
+function coffindance() {
+    var pic;
+    pic = "coffindance.gif"
+    document.getElementById('fail').src = pic;
+}
+function next(){
+    var pic;
+    if (pic_count%3 == 0){
+        pic = "bicyclefail.gif"
+        pic_count ++;
+    }
+    else if (pic_count%3 == 1){
+        pic = "swimpoolfail.gif"
+        pic_count ++;
+    }
+    else{
+        pic = "manfall.gif"
+        pic_count = 0
+    }
+    document.getElementById('fail').src = pic;
+    
+}
+</script>
+
+<img id="fail" src="manfall.gif" width="300" height="300">
+
+<p>
+<button type="button" onclick="coffindance()">CALL COFFIN DANCER!</button>
+<button type="button" onclick="next()">NEXT</button>
+</p>
+
+</body>
+</html>

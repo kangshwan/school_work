@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>무지개빛 총공격!</title>
+        <style>
+            body{
+                background-color: black;
+            }
+            
+        </style>
+    </head>
+<body>
+
+<h1 id="headtitle" style="color: white">무지개빛 총공격이다!</h1>
+
+<p id="attack" style="font-size: 25px; color: white">무색</p>
+
+<script>
+var count = 0;
+function myFunction() {
+    if (count%7 == 0){
+        document.getElementById("attack").innerHTML="빨강"
+        document.getElementById("attack").style.fontSize = "25px"; 
+        document.getElementById("attack").style.color = "red";
+        document.getElementById("attack").style.backgroundColor = "orange"; 
+        document.getElementById("headtitle").style = "color: yellow"; 
+        count++;
+    }else if(count%7 == 1){
+        document.getElementById("attack").innerHTML="주황"
+        document.getElementById("attack").style.fontSize = "25px"; 
+        document.getElementById("attack").style.color = "orange";
+        document.getElementById("attack").style.backgroundColor = "yellow"; 
+        document.getElementById("headtitle").style = "color: green";
+        count++;
+    }else if(count%7 == 2){
+        document.getElementById("attack").innerHTML="노랑"
+        document.getElementById("attack").style.fontSize = "25px"; 
+        document.getElementById("attack").style.color = "yellow";
+        document.getElementById("attack").style.backgroundColor = "green"; 
+        document.getElementById("headtitle").style = "color: blue"; 
+        count++;
+    }else if(count%7 == 3){
+        document.getElementById("attack").innerHTML="초록"
+        document.getElementById("attack").style.fontSize = "25px"; 
+        document.getElementById("attack").style.color = "green";
+        document.getElementById("attack").style.backgroundColor = "blue";         
+        document.getElementById("headtitle").style = "color: navy"; 
+        count++;
+    }else if(count%7 == 4){
+        document.getElementById("attack").innerHTML="파랑"
+        document.getElementById("attack").style.fontSize = "25px"; 
+        document.getElementById("attack").style.color = "blue";
+        document.getElementById("attack").style.backgroundColor = "navy"; 
+        document.getElementById("headtitle").style = "color: purple";        
+        count++;
+    }else if(count%7 == 5){
+        document.getElementById("attack").innerHTML="남색"
+        document.getElementById("attack").style.fontSize = "25px"; 
+        document.getElementById("attack").style.color = "navy";
+        document.getElementById("attack").style.backgroundColor = "purple"; 
+        document.getElementById("headtitle").style = "color: red"; 
+        count++;
+    }else if(count%7 == 6){
+        document.getElementById("attack").innerHTML="보라"
+        document.getElementById("attack").style.fontSize = "25px"; 
+        document.getElementById("attack").style.color = "purple";
+        document.getElementById("attack").style.backgroundColor = "red"; 
+        document.getElementById("headtitle").style = "color: orange"; 
+        count++;
+    }
+}
+
+</script>
+
+<button type="button" onclick="myFunction()">RAINBOW</button>
+<br>
+<img src="lulu.jfif" width="600px" height="300px">
+</body>
+</html>
