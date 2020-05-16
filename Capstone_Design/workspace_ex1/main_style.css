@@ -1,0 +1,18 @@
+body{
+    background-color: lightskyblue;
+}
+hr.one{
+    height:5px;
+    background-color: gray;
+}
+div.myself{
+    background-color: bisque;
+}
+
+li.list_me{
+    color: green;
+}
+span.about_me{
+    color: blue;
+    text-decoration: underline;
+}

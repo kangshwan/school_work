@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>자기소개</title>
+    <link rel="stylesheet" href="main_style.css">
+    <script type="text/javascript" src = "main_function.js"></script>
+    <meta charset="utf-8">
+</head>
+
+<body>
+    
+    <h1><center><p onmouseover='mover();' onmouseout='mout();'>
+        나를 소개합니다
+    </p>
+    </center>
+    </h1>
+    <hr class="one">
+    <div id = "introduce">
+        <div id='my_img'>  
+        </div>
+        <div class="myself" id='myself'>
+            <table>
+            <tr>
+            <td width= "100%"><ol>
+                <li class="list_me">이름: <span class="about_me"> 강승환</span></li>
+                <li class="list_me">취미: <span class="about_me"> 게임</span></li>
+                <li class="list_me">메이플 서버: <span class="about_me"> 베라서버</span></li>
+                <li class="list_me">내 게임 캐릭터 사진: <span class="about_me" onclick="showimg();" > 확인하기</span></li>
+                <li class="list_me">GITHUB주소: <a href="https://github.com/kangshwan">내 깃허브</a></li>
+                <li class="list_me">블로그주소: <a href="https://kangshwan.github.io">내 블로그</a></li>
+            </ol></td>
+            <td width = "50%">
+                <img id='character_img' style="display:none" src="maple_profile.png">
+            </td>
+            </tr>
+            </table>
+        </div>
+    </div>
+
+</body>
+</html>
